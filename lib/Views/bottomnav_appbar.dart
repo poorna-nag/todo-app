@@ -21,9 +21,6 @@ class _BottomnavAppbarState extends State<BottomnavAppbar> {
           ],
           onDestinationSelected: (int value) {
             selectedPageNotifire.value = value;
-            // setState(() {
-            //   CurrentIndex = value;
-            // });
           },
           selectedIndex: selectedpage,
         );
