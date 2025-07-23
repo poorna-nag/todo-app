@@ -10,6 +10,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('HOME PAGE'),);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          TextField(
+            decoration: const InputDecoration(
+              border: OutlineInputBorder()
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
