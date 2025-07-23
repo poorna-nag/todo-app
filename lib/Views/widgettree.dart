@@ -6,21 +6,36 @@ import 'package:flutter_application_2/widgets/notifire.dart';
 
 List<Widget> pages = [HomePage(), PersonPage()];
 
-class Widgettree extends StatelessWidget {
-  const Widgettree({super.key});
+class WidgetTree extends StatelessWidget {
+  const WidgetTree({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dema App"),
+        title: Text("Demo App"),
         backgroundColor: Colors.amber,
         // leading: Icon(Icons.whatshot_sharp),
-        actions: [Icon(Icons.search), Icon(Icons.list)],
+        actions: [
+          IconButton(
+            onPressed: () {
+              isDarkModeNotifire.value = !isDarkModeNotifire.value;
+            },
+            icon: ValueListenableBuilder(
+              valueListenable: isDarkModeNotifire,
+              builder: (context, isDarkMood, child) {
+                return Icon(isDarkMood ? Icons.dark_mode : Icons.light_mode);
+              },
+            ),
+          ),
+        ],
       ),
-      body: ValueListenableBuilder(valueListenable: selectedPageNotifire, builder: (context, selectedpage, child) {
-        return pages.elementAt(selectedpage);
-      },),
+      body: ValueListenableBuilder(
+        valueListenable: selectedPageNotifire,
+        builder: (context, selectedpage, child) {
+          return pages.elementAt(selectedpage);
+        },
+      ),
       bottomNavigationBar: BottomnavAppbar(),
     );
   }
