@@ -18,6 +18,7 @@ class _BottomnavAppbarState extends State<BottomnavAppbar> {
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: "HOME"),
             NavigationDestination(icon: Icon(Icons.person), label: "Person"),
+            NavigationDestination(icon: Icon(Icons.abc), label: "cart")
           ],
           onDestinationSelected: (int value) {
             selectedPageNotifire.value = value;

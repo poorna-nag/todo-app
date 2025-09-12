@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Views/catalog_page.dart';
 import 'package:flutter_application_2/Views/home_page.dart';
 import 'package:flutter_application_2/Views/person_page.dart';
 import 'package:flutter_application_2/Views/bottomnav_appbar.dart';
+import 'package:flutter_application_2/Views/setting_page.dart';
 import 'package:flutter_application_2/widgets/notifire.dart';
 
-List<Widget> pages = [HomePage(), PersonPage()];
+List<Widget> pages = [HomePage(), PersonPage(), CatalogPage()];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});
@@ -28,6 +30,19 @@ class WidgetTree extends StatelessWidget {
               },
             ),
           ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SettingPage(title: "setting page");
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.settings),
+          ),
         ],
       ),
       body: ValueListenableBuilder(
@@ -35,6 +50,7 @@ class WidgetTree extends StatelessWidget {
         builder: (context, selectedpage, child) {
           return pages.elementAt(selectedpage);
         },
+        
       ),
       bottomNavigationBar: BottomnavAppbar(),
     );

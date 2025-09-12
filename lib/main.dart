@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Views/widgettree.dart';
+import 'package:flutter_application_2/Views/catalog_page.dart';
+
+import 'package:flutter_application_2/Views/wellcome_page.dart';
 import 'package:flutter_application_2/widgets/notifire.dart';
+import 'package:provider/provider.dart';
+
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+     ChangeNotifierProvider(create: (context) => Cart(), child:const MainApp(),)
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -22,7 +28,7 @@ class MainApp extends StatelessWidget {
             ),
           ),
           debugShowCheckedModeBanner: false,
-          home: WidgetTree(),
+          home: WellcomePage(),
         );
       },
     );
